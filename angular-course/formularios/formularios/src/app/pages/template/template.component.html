@@ -1,0 +1,85 @@
+<h4>Formularios <small> Templates </small></h4>
+<hr>
+<form autocomplete="off" (ngSubmit)="guardar( forma )" #forma="ngForm">
+
+  <div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               name="nombre"
+               [class.is-invalid]="nombre.invalid && nombre.touched || (forma.invalid && forma.submitted)"
+               [ngModel]="user.name"
+               placeholder="Nombre"
+               required
+               minlength="5"
+               #nombre = ngModel>
+        <small *ngIf="nombre.invalid && nombre.touched" class="form-text text-danger">Ingrese 5 letras</small>
+      </div>
+    </div>
+
+    <div class="form-group row mt-1">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               name="apellido"
+               [class.is-invalid]="apellido.invalid && apellido.touched || (forma.invalid && forma.submitted)"
+               placeholder="Apellido"
+               required
+               [ngModel]="user.apellido"
+               minlength="7"
+               #apellido = "ngModel">
+        <small *ngIf="apellido.invalid && apellido.touched" class="form-text text-danger">Ingrese 5 letras</small>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-group row mt-1">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-8">
+
+      <input class="form-control"
+             type="email"
+             [ngModel]="user.correo"
+             required
+             name="correo"
+             [class.is-invalid]="correo.invalid && correo.touched || (forma.invalid && forma.submitted)"
+             placeholder="Correo electrónico"
+             #correo = "ngModel">
+      <small *ngIf="correo.invalid && correo.touched" class="form-text text-danger">Ingrese un Correo Valido</small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Pais</label>
+    <div class="col-8">
+
+      <select class="form-control" 
+              name="pais"
+              [ngModel]="user.pais"
+              [disabled]="paises === 0"
+              required>
+        <option *ngFor="let pais of paises" [value]="pais.code">{{ pais.nombre }}</option>
+      </select>
+
+    </div>
+  </div>
+
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary btn-block">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+</form>

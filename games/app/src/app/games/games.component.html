@@ -1,0 +1,37 @@
+<br>
+<br>
+<div style="padding: 30px;" *ngIf="load">
+  <div style="text-align: left;">
+    <h2>Pikachu</h2>
+    <div style="display: flex;align-items: center;">
+      <div>
+        <img [src]="image">
+      </div>
+      <div>
+        <ion-progress-bar style="margin-bottom: 80px;margin-left: 20px;width: 500px;height: 30px;" [value]="atack" [color]="value" ></ion-progress-bar>
+        <button (click)="pikachu()" style="margin-left: 20px;height: 50px;">Atack!!</button>
+      </div>
+    </div>
+  
+    <h2>Lukario</h2>
+    <div style="display: flex;align-items: center;">
+      <div>
+        <img [src]="image2">
+      </div>
+      <div>
+        <ion-progress-bar style="margin-bottom: 80px;margin-left: 20px;width: 500px;height: 30px;" [value]="atack2" [color]="value2"></ion-progress-bar>
+        <button (click)="lukario()" style="margin-left: 20px;height: 50px;">Atack!!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!load" style="text-align: center;justify-content: center;">
+<h1 style="font-weight: 500;font-size: 80px;">{{text}}</h1>
+<h1 style="font-size: 40px;">En {{count}}</h1>
+</div>
+
+<div *ngIf="show" style="text-align: center;justify-content: center;">
+  <h1 style="font-weight: 500;font-size: 80px;">{{text2}}</h1>
+  <img [src]="image3">
+</div>
